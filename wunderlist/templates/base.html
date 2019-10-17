@@ -11,18 +11,21 @@
 <body>
   
   <ul class="nav justify-content-center">
-    <li class="nav-item">
-      <a class="nav-link active" href="{% url 'accounts:signup' %}">회원가입</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li>
+    {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{user.username}}님, 환영합니다.</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">로그아웃</a>
+      </li>
+    {% else %}
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'accounts:signup' %}">회원가입</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
+      </li>
+    {% endif %}
   </ul>
 
   <div class="container">

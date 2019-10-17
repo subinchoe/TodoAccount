@@ -16,7 +16,7 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{user.username}}님, 환영합니다.</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">로그아웃</a>
+        <a class="nav-link" href="{% url 'accounts:logout'%}">로그아웃</a>
       </li>
     {% else %}
       <li class="nav-item">

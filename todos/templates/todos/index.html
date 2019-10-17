@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 {% block body %}
-  <h1>INDEX</h1>
-  <!-- <h2>{{visit_num}}번 방문했습니다.</h2> -->
+  {% for todo in todos %}
+    <div class="alert alert-primary" role="alert">
+      Todo : {{todo.content}}
+      <br>
+      Duedate : {{todo.due_date}}
+      <div class="text-right">
+          Created_at : {{todo.created_at}}
+      </div>
+      <div class="text-right my-2">
+        <a href="{% url 'todos:delete' todo.id %}" class="btn btn-outline-success">Complete!</a>
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}
